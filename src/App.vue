@@ -6,6 +6,16 @@
   <router-view/>
 </template>
 
+<script>
+
+export default ({
+  created: function() {
+    this.$store.dispatch('users/getUser');
+  }
+})
+</script>
+
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

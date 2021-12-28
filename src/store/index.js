@@ -1,4 +1,8 @@
 import { createStore } from 'vuex'
+import { users } from './modules/users';
+import { messages } from './modules/messages';
+
+
 
 export default createStore({
   state: {
@@ -8,5 +12,7 @@ export default createStore({
   actions: {
   },
   modules: {
+    users,
+    messages
   }
 })
