@@ -1,7 +1,9 @@
 <template>
   <div class="userIndex">
     <div v-for="user in users" :key="user.login.uuid" >
-      {{ user.name }}
+      <router-link :to="`/user/${user.login.uuid}`" class="border">
+        {{user.login.uuid}}
+      </router-link>
     </div>
     <button class="border" @click="log">btn</button>
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
