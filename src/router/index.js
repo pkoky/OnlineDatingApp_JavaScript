@@ -16,7 +16,13 @@ const routes = [
     path: '/user/:userId',
     name: 'User',
     component: () => import('../views/User.vue')
+  },
+  {
+    path: '/user/:userId/message',
+    name: "Chat",
+    component: () => import('../views/Chat.vue')
   }
+
   
 ]
 
