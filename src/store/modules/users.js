@@ -27,5 +27,9 @@ export const users = {
         })
     }
   },
-
+  getters: {
+    getUser: (state) => (id) =>{
+      return state.users[id];
+    }
+  }
 }
