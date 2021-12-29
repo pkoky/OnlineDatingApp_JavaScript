@@ -29,6 +29,7 @@ export const users = {
   },
   getters: {
     getUser: (state) => (id) =>{
+      console.log(state.users[id])
       return state.users[id];
     }
   }
