@@ -6,6 +6,7 @@
       </router-link>
     </div>
     <button class="border" @click="log">btn</button>
+    <UserListComp></UserListComp>
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   </div>
 </template>
@@ -14,26 +15,17 @@
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
 import { mapState } from 'vuex';
+import UserListComp from '@/components/UserListComp.vue';
 
 export default {
-  name: 'Home',
-  data(){
-    return {
-      
-    }
-  },
-  methods: {
-    log: function(){
-      console.log(Object.keys(this.users))
-    }
-  },
+  name: 'UserList',
   computed: {
     ...mapState({
       users: state => state.users.users
     }),
   },
   components: {
-    // HelloWorld
+    UserListComp
   }
 }
 </script>

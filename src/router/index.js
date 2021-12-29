@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import UserList from '../views/user-list.vue'
+import UserList from '../views/UserList.vue'
 
 const routes = [
   {
@@ -13,7 +13,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: '/user/:id',
+    path: '/user/:userId',
     name: 'UserShow',
     component: () => import('../views/User.vue')
   }

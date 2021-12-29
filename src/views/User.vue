@@ -29,16 +29,12 @@
 import { mapState, mapGetters } from 'vuex';
 
 export default({
-  data(){
-    return {
-      
-    }
-  },
   created() {
+    console.log(this.$route.params.userId)
   },
   computed: {
     id: function(){
-      return this.$route.params.id
+      return this.$route.params.userId
     },
     user: function(){
       return this.get(this.id)
