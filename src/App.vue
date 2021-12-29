@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <router-link :to="{name: 'UserList'}">ユーザー一覧</router-link> |
+    <router-link :to="{name: 'UserList'}">HOME</router-link> |
     <router-link to="/about">About</router-link>
   </div>
   <router-view/>
@@ -10,7 +10,6 @@
 
 export default ({
   created: function() {
-    this.$store.dispatch('users/getUser');
   }
 })
 </script>
