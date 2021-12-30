@@ -1,8 +1,4 @@
-// import { VueElement } from "vue";
-
 const url = 'https://randomuser.me/api/?results=10';
-
-// let userMap = new Map();
 
 export const users = {
   namespaced: true,
@@ -12,7 +8,6 @@ export const users = {
   mutations: {
     addUser: function(state, user){
       state.users[user.login.uuid] = user;
-      // console.log(users)
     }
   },
   actions: {

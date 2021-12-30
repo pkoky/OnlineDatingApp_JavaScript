@@ -18,7 +18,7 @@ const routes = [
     component: () => import('../views/User.vue')
   },
   {
-    path: '/user/:userId/message',
+    path: '/user/:userId/chat',
     name: "Chat",
     component: () => import('../views/Chat.vue')
   }
