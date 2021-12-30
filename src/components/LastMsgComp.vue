@@ -1,8 +1,11 @@
 <template>
-  <div class="flex">
-    <img :src="user.picture.large" alt="">
-    lastMsg: {{ lastMsg }}
-  </div>
+  <router-link :to="{name: 'Chat', params: {userId: `${user.login.uuid}`}}">
+    <div class="flex">
+        
+      <img :src="user.picture.large" alt="">
+      lastMsg: {{ lastMsg }}
+    </div>
+  </router-link>
     
 </template>
 

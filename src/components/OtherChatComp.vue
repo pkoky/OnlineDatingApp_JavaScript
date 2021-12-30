@@ -1,10 +1,13 @@
 <template>
   <div class="flex justify-start">
+    <router-link :to="{name: 'User', params: {userId: `${user.login.uuid}`}}">
+      <img :src="user.picture.thumbnail" alt="">
+    </router-link>
     <div class="flex flex-col">
       <div>
-        Other: {{getFullName}}
+        {{getFullName}}
       </div>
-      <div>
+      <div class="">
         msg: {{msg}}
       </div>
     </div>
