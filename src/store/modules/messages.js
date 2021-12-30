@@ -1,3 +1,5 @@
+const otherMsg = {other: "Hello"};
+
 export const messages = {
   namespaced: true,
   state: {
@@ -10,6 +12,7 @@ export const messages = {
         state.messages[key] = [];
       }
       state.messages[key].push(message[key]);
+      state.messages[key].push(otherMsg);
     }
   },
   actions: {

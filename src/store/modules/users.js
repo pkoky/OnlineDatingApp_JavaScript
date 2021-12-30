@@ -1,9 +1,11 @@
 const url = 'https://randomuser.me/api/?results=10';
+const mine = {name: {first:'kohei', last: 'ishida'}};
 
 export const users = {
   namespaced: true,
   state: {
     users: {},
+    mine: mine,
   },
   mutations: {
     addUser: function(state, user){
@@ -24,7 +26,6 @@ export const users = {
   },
   getters: {
     getUser: (state) => (id) =>{
-      console.log(state.users[id])
       return state.users[id];
     }
   }

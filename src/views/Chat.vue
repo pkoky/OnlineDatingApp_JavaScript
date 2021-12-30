@@ -1,6 +1,14 @@
 <template>
-  <h1>chatvue!!!</h1>
-  <h1>{{messages}}</h1>
+  <ol>
+    <li v-for="msg in messages[id()]" :key="msg">
+      <div v-if="Object.keys(msg) != 'mine'">
+        <OtherComp :user="user" :msg="Object.values(msg)[0]"></OtherComp>
+      </div>
+      <div v-else>
+        <MineComp></MineComp>
+      </div>
+    </li>
+  </ol>
   <div>
     <input type="text" v-model="message">
     <button @click="userSendMessage">send</button>
@@ -8,7 +16,9 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
+import OtherComp from '@/components/OtherChatComp.vue';
+import MineComp from '@/components/MineChatComp.vue';
 
 export default ({
   name: 'Chat',
@@ -18,10 +28,16 @@ export default ({
     }
   },
   computed: {
+    user: function(){
+      return this.getUser(this.id())
+    },
     ...mapState({
       messages: function(state){
         return state.messages.messages;
       }
+    }),
+    ...mapGetters({
+      getUser: ('users/getUser')
     })
   },
   methods: {
@@ -42,10 +58,10 @@ export default ({
       let message = {'mine': this.message};
       this.sendMessages(message)
     },
-
-    otherSendMessage: function(){
-
-    }
+  },
+  components: {
+    OtherComp,
+    MineComp,
   }
 })
 </script>
