@@ -21,7 +21,6 @@ const routes = [
     path: '/chat-list',
     name: "ChatList",
     component: () => import('../views/MessageList.vue')
-
   }
 ]
 

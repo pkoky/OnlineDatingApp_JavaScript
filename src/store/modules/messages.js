@@ -21,6 +21,14 @@ export const messages = {
     }
   },
   getters: {
-    
+    getMessageArr: function(state){
+      let messageArr = [];
+      for (let key in state.messages){
+        let message = {};
+        message[key] = state.messages[key];
+        messageArr.push(message);
+      }
+      return messageArr;
+    }
   }
 }
