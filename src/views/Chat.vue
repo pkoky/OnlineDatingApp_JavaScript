@@ -5,7 +5,7 @@
         <OtherComp :user="user" :msg="Object.values(msg)[0]"></OtherComp>
       </div>
       <div v-else>
-        <MineComp></MineComp>
+        <MineComp :msg="Object.values(msg)[0]"></MineComp>
       </div>
     </li>
   </ol>

@@ -1,9 +1,15 @@
 <template>
-  <div>
-    Other: {{getFullName}}
+  <div class="flex justify-start">
+    <div class="flex flex-col">
+      <div>
+        Other: {{getFullName}}
+      </div>
+      <div>
+        msg: {{msg}}
+      </div>
+    </div>
   </div>
   <div>
-    msg: {{msg}}
   </div>
 </template>
 

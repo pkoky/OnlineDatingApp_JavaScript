@@ -8,11 +8,6 @@ const routes = [
     component: UserList
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
-  {
     path: '/user/:userId',
     name: 'User',
     component: () => import('../views/User.vue')
@@ -21,9 +16,13 @@ const routes = [
     path: '/user/:userId/chat',
     name: "Chat",
     component: () => import('../views/Chat.vue')
-  }
+  },
+  {
+    path: '/chat-list',
+    name: "ChatList",
+    component: () => import('../views/MessageList.vue')
 
-  
+  }
 ]
 
 const router = createRouter({

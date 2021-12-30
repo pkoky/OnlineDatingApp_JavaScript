@@ -1,13 +1,23 @@
 <template>
-  mineComp
-  <div>
-    {{ getFullName }}
+  <div class="flex justify-end">
+    <div class="flex flex-col">
+      <div>
+        {{ getFullName }}
+      </div>
+      <div>
+        {{ msg }}
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
+
 export default ({
+  props: {
+    msg: String,
+  },
   computed: {
     ...mapState({
       mine: function(state){
@@ -16,7 +26,6 @@ export default ({
     }),
     getFullName() {
       let name = this.mine.name;
-      console.log(name)
       return name.first + ' ' + name.last;
     }
   }
