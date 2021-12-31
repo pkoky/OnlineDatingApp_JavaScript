@@ -1,4 +1,4 @@
-const otherMsg = {other: "Hello"};
+import { createMsg } from '@/methods/createMsg.js';
 
 export const messages = {
   namespaced: true,
@@ -12,7 +12,11 @@ export const messages = {
         state.messages[key] = [];
       }
       state.messages[key].push(message[key]);
-      state.messages[key].push(otherMsg);
+      let otherMsg = {};
+      setTimeout(() => { 
+        otherMsg = createMsg();        
+        state.messages[key].push(otherMsg);
+      }, 3000);
     }
   },
   actions: {
