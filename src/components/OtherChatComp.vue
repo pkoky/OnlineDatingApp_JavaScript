@@ -8,7 +8,10 @@
         {{getFullName}}
       </div>
       <div class="">
-        msg: {{msg}}
+        msg: {{msg['other']}}
+      </div>
+      <div>
+        date: {{ sendDate }}
       </div>
     </div>
   </div>
@@ -17,6 +20,7 @@
 </template>
 
 <script>
+import { getSendDate } from '@/methods/getSendDate.js';
 
 export default ({
   props: {
@@ -26,6 +30,10 @@ export default ({
   computed: {
     getFullName(){
       return this.user.name.first + " " + this.user.name.last
+    },
+    sendDate(){
+      let date = this.msg['date'];
+      return getSendDate(date);
     }
   }
 })

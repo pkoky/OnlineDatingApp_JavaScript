@@ -1,9 +1,6 @@
 <template>
   <ol>
     <li v-for="msg in messages[id()]" :key="msg">
-      <div>
-        msg: {{ Object.keys(msg) }}
-      </div>
       <div v-if="Object.keys(msg)[0] != 'mine'">
         <OtherComp :user="user" :msg="msg"></OtherComp>
       </div>
