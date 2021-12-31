@@ -1,11 +1,14 @@
 <template>
   <ol>
     <li v-for="msg in messages[id()]" :key="msg">
-      <div v-if="Object.keys(msg) != 'mine'">
-        <OtherComp :user="user" :msg="Object.values(msg)[0]"></OtherComp>
+      <div>
+        msg: {{ Object.keys(msg) }}
+      </div>
+      <div v-if="Object.keys(msg)[0] != 'mine'">
+        <OtherComp :user="user" :msg="msg"></OtherComp>
       </div>
       <div v-else>
-        <MineComp :msg="Object.values(msg)[0]"></MineComp>
+        <MineComp :msg="msg"></MineComp>
       </div>
     </li>
   </ol>
@@ -55,7 +58,8 @@ export default ({
     },
 
     userSendMessage: function(){
-      let message = {'mine': this.message};
+      let date = new Date();
+      let message = {'mine': this.message, 'date': date};
       this.sendMessages(message)
     },
   },

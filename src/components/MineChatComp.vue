@@ -5,7 +5,10 @@
         {{ getFullName }}
       </div>
       <div>
-        {{ msg }}
+        {{ msg['mine'] }}
+      </div>
+      <div>
+        {{ sendDate }}
       </div>
     </div>
   </div>
@@ -13,10 +16,11 @@
 
 <script>
 import { mapState } from 'vuex';
+import { getSendDate } from '@/methods/getSendDate.js';
 
 export default ({
   props: {
-    msg: String,
+    msg: Object,
   },
   computed: {
     ...mapState({
@@ -27,6 +31,10 @@ export default ({
     getFullName() {
       let name = this.mine.name;
       return name.first + ' ' + name.last;
+    },
+    sendDate(){
+      let date = this.msg['date'];
+      return getSendDate(date);
     }
   }
 })

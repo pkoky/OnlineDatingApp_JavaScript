@@ -21,7 +21,7 @@
 export default ({
   props: {
     user: Object,
-    msg: String,
+    msg: Object,
   },
   computed: {
     getFullName(){
