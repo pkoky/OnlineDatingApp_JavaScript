@@ -1,5 +1,4 @@
 <template>
-  <h1>messagelist.vue</h1>
   <div v-for="msg in messageArr" :key="msg">
     <LastMsgComp :msg="msg"></LastMsgComp>
   </div>

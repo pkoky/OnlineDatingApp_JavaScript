@@ -1,10 +1,17 @@
 <template>
   <router-link :to="{name: 'Chat', params: {userId: `${user.login.uuid}`}}">
     <div class="flex">
-        
-      <img :src="user.picture.large" alt="">
-      lastMsg: {{ lastMsg }}
-      {{ Object.values(msg)[0] }}
+      <div>
+        <img :src="user.picture.large" alt="">
+      </div>
+      <div>
+        <div>
+          {{ lastMsg }}
+        </div>
+        <div>
+          {{ sendDate }}
+        </div>
+      </div>
     </div>
   </router-link>
     
@@ -13,6 +20,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import { getSendDate } from '@/methods/getSendDate.js';
 
 export default ({
   props: {
@@ -20,18 +28,31 @@ export default ({
   },
   computed: { 
     lastMsg: function(){
+      return Object.values(this.lastMsgObj)[0]
+    },
+
+    lastMsgDate: function(){
+      return Object.values(this.lastMsgObj)[1];
+    },
+
+     lastMsgObj: function(){
       let lastMsg = Object.values(this.msg)[0];
       let l = lastMsg.length;
-      lastMsg = Object.values(lastMsg[l-1])
-      return lastMsg[0];
+      lastMsg = lastMsg[l-1]
+      return lastMsg;
     },
-    user: function(){
-      return this.getUser(Object.keys(this.msg));
-    },
+
     ...mapGetters({
       getUser: ('users/getUser'),
     }),
 
+    sendDate: function(){
+      return getSendDate(this.lastMsgDate);
+    },
+
+    user: function(){
+      return this.getUser(Object.keys(this.msg));
+    },
   }
 })
 </script>
