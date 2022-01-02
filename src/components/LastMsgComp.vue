@@ -4,6 +4,7 @@
         
       <img :src="user.picture.large" alt="">
       lastMsg: {{ lastMsg }}
+      {{ Object.values(msg)[0] }}
     </div>
   </router-link>
     

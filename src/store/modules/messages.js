@@ -1,4 +1,4 @@
-import { createMsg } from '@/methods/createMsg.js';
+import { createMsg, getRandomInt } from '@/methods/createMsg.js';
 
 export const messages = {
   namespaced: true,
@@ -12,11 +12,12 @@ export const messages = {
         state.messages[key] = [];
       }
       state.messages[key].push(message[key]);
-      let otherMsg = {};
+      let seconds = getRandomInt(10)*1000;
       setTimeout(() => { 
+        let otherMsg = {};
         otherMsg = createMsg();        
         state.messages[key].push(otherMsg);
-      }, 3000);
+      }, seconds);
     }
   },
   actions: {

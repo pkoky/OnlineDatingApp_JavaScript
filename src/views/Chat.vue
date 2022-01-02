@@ -10,7 +10,7 @@
     </li>
   </ol>
   <div>
-    <input type="text" v-model="message">
+    <input type="text" v-model="message" class="border">
     <button @click="userSendMessage">send</button>
   </div>
 </template>
