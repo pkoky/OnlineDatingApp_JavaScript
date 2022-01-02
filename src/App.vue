@@ -10,6 +10,7 @@
 
 export default ({
   created: function() {
+    this.$store.dispatch('users/getUser');
   }
 })
 </script>

@@ -1,4 +1,4 @@
-const url = 'https://randomuser.me/api/?results=10';
+const url = 'https://randomuser.me/api/?results=25';
 const mine = {name: {first:'kohei', last: 'ishida'}};
 
 export const users = {

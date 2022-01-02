@@ -1,33 +1,45 @@
 <template>
-  <div>
-    <img :src="user.picture.large">
+  <div class="flex flex-col items-center">
+    <div>
+      <img :src="user.picture.large" class="rounded-lg">
+    </div>
+    <div class="py-4">
+      <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+        <router-link :to="{name: 'Chat', params: {userId: `${user.login.uuid}`}}">
+          MESSAGE
+        </router-link>
+      </button>
+    </div>
+    <table class="table-auto">
+      <tbody>
+        <tr>
+          <td class="text-right pr-2">name :</td>
+          <td class=""><span class="font-bold text-xl">{{ user.name.first + " " + user.name.last }}</span></td>
+        </tr>
+        <tr>
+          <td class="text-right pr-2">gender :</td>
+          <td><span class="font-bold text-xl">{{ user.gender }}</span></td>
+        </tr>
+        <tr>
+          <td class="text-right pr-2">age :</td>
+          <td><span class="font-bold text-xl">{{ user.registered.age }}</span></td>
+        </tr>
+        <tr>
+          <td class="text-right pr-2">country :</td>
+          <td><span class="font-bold text-xl">{{ user.location.country }}</span></td>
+        </tr>
+        <tr>
+          <td class="text-right pr-2">state :</td>
+          <td><span class="font-bold text-xl">{{ user.location.state }}</span></td>
+        </tr>
+        <tr>
+          <td class="text-right pr-2">city :</td>
+          <td><span class="font-bold text-xl">{{ user.location.city }}</span></td>
+        </tr>
+      </tbody>
+      
+    </table>
   </div>
-  <div>
-    <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-      <router-link :to="{name: 'Chat', params: {userId: `${user.login.uuid}`}}">
-        MESSAGE
-      </router-link>
-    </button>
-  </div>
-  <div>
-    name:{{ user.name.first + " " + user.name.last }}
-  </div>
-  <div>
-    gender:{{ user.gender }}
-  </div>
-  <div>
-    age:{{ user.registered.age }}
-  </div>
-  <div>
-    country:{{ user.location.country }}
-  </div>
-  <div>
-    state:{{ user.location.state }}
-  </div>
-  <div>
-    city:{{ user.location.city }}
-  </div>
-  
 
 </template>
 
