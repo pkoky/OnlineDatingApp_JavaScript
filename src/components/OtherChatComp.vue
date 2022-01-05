@@ -8,10 +8,10 @@
         {{getFullName}}
       </div>
       <div class="">
-        msg: {{msg['other']}}
+        {{msg['other']}}
       </div>
       <div>
-        date: {{ sendDate }}
+        {{ sendDate }}
       </div>
     </div>
   </div>

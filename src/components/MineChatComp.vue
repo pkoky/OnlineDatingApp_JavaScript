@@ -2,7 +2,6 @@
   <div class="flex justify-end">
     <div class="flex flex-col">
       <div>
-        {{ getFullName }}
       </div>
       <div>
         {{ msg['mine'] }}
