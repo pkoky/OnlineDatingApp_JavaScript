@@ -1,12 +1,10 @@
 <template>
-  <div class="flex justify-end">
-    <div class="flex flex-col">
-      <div>
-      </div>
-      <div>
+  <div class="flex justify-end text-right py-2">
+    <div class="flex items-end bg-green-600 rounded-lg p-1">
+      <div class="pl-1 pr-3">
         {{ msg['mine'] }}
       </div>
-      <div>
+      <div class="text-xs pr-1">
         {{ sendDate }}
       </div>
     </div>
@@ -15,7 +13,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import { getSendDate } from '@/methods/getSendDate.js';
+import { getSendTime } from '@/methods/getSendDate.js';
 
 export default ({
   props: {
@@ -33,7 +31,7 @@ export default ({
     },
     sendDate(){
       let date = this.msg['date'];
-      return getSendDate(date);
+      return getSendTime(date);
     }
   }
 })

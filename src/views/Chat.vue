@@ -1,22 +1,36 @@
 <template>
-<div class="flex flex-col items-center flex-grow p-5 w-1/2 border">
-  <div class="text-left">
-    {{fullName}}
+<div class="flex flex-col flex-grow text-white">
+  <div class="flex items-center border mr-auto sticky top-0 bg-gray-900 bg-opacity-75 w-full py-2">
+    <div class="px-2">
+      <router-link :to="{name:'User', params: {userId: `${user.login.uuid}`}}">
+        <h1><i class="fas fa-chevron-left fa-2x"></i></h1>
+      </router-link>
+    </div>
+    <div class="flex items-center ml-5">
+      <div>
+        <img :src="user.picture.thumbnail" alt="" class="rounded-full h-10 w-10">
+      </div>
+      <div class="pl-3">
+        {{fullName}}
+      </div>
+    </div>
   </div>
-  <ol class="">
-    <li v-for="msg in messages[id()]" :key="msg">
-      <div v-if="Object.keys(msg)[0] != 'mine'">
-        <OtherComp :user="user" :msg="msg"></OtherComp>
-      </div>
-      <div v-else>
-        <MineComp :msg="msg"></MineComp>
-      </div>
-    </li>
-  </ol>
-</div>
-<div class="p-5">
-  <input type="text" v-model="message" class="border">
-  <button @click="userSendMessage" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white px-2 border border-blue-500 hover:border-transparent rounded">send</button>
+  <div class="flex flex-col items-center flex-grow p-5">
+    <ol class="w-full">
+      <li v-for="msg in messages[id()]" :key="msg">
+        <div v-if="Object.keys(msg)[0] != 'mine'" class="">
+          <OtherComp :user="user" :msg="msg"></OtherComp>
+        </div>
+        <div v-else class="">
+          <MineComp :msg="msg"></MineComp>
+        </div>
+      </li>
+    </ol>
+  </div>
+  <div class="p-2 sticky bottom-0 bg-gray-900 bg-opacity-75">
+    <input type="text" v-model="message" class="border px-2 py-1 mr-2 bg-gray-500 bg-opacity-50">
+    <button @click="userSendMessage" class="bg-transparent hover:bg-blue-500 font-semibold hover:text-white px-2 border border-white hover:border-transparent rounded">send</button>
+  </div>
 </div>
 </template>
 

@@ -7,4 +7,16 @@ function getSendDate(date) {
   return dateStr;
 }
 
-export { getSendDate };
+function getSendTime(date) {
+  let dateStr = '';
+  dateStr += date.getHours() + ':';
+  dateStr += isADigit(date.getMinutes()) ? '0' + date.getMinutes() : date.getMinutes();
+  return dateStr;
+}
+
+function isADigit(n){
+  if (String(n).length > 1) return false;
+  return true;
+}
+
+export { getSendDate, getSendTime };

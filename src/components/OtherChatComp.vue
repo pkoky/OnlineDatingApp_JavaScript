@@ -1,16 +1,10 @@
 <template>
-  <div class="flex justify-start">
-    <router-link :to="{name: 'User', params: {userId: `${user.login.uuid}`}}">
-      <img :src="user.picture.thumbnail" alt="">
-    </router-link>
-    <div class="flex flex-col">
-      <div>
-        {{getFullName}}
-      </div>
-      <div class="">
+  <div class="flex fustify-start text-left py-2">
+    <div class="flex items-end bg-gray-600 rounded-lg p-1">
+      <div class="pl-1 pr-3">
         {{msg['other']}}
       </div>
-      <div>
+      <div class="text-xs pr-1">
         {{ sendDate }}
       </div>
     </div>
@@ -20,7 +14,7 @@
 </template>
 
 <script>
-import { getSendDate } from '@/methods/getSendDate.js';
+import { getSendTime } from '@/methods/getSendDate.js';
 
 export default ({
   props: {
@@ -33,7 +27,7 @@ export default ({
     },
     sendDate(){
       let date = this.msg['date'];
-      return getSendDate(date);
+      return getSendTime(date);
     }
   }
 })
