@@ -1,10 +1,10 @@
 <template>
   <div class="flex justify-end text-right py-2">
     <div class="flex items-end bg-green-600 rounded-lg p-1">
-      <div class="pl-1 pr-3">
-        {{ msg['mine'] }}
+      <div class="pl-1 pr-3 whitespace-pre-wrap text-left w-28">
+          <p v-html="getOptimizedMsg" class="whitespace-normal"></p>
       </div>
-      <div class="text-xs pr-1">
+      <div class="text-xs pr-1 text-black">
         {{ sendDate }}
       </div>
     </div>
@@ -28,6 +28,9 @@ export default ({
     getFullName() {
       let name = this.mine.name;
       return name.first + ' ' + name.last;
+    },
+    getOptimizedMsg(){
+      return this.msg['mine'];
     },
     sendDate(){
       let date = this.msg['date'];

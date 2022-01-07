@@ -15,7 +15,7 @@
       </div>
     </div>
   </div>
-  <div class="flex flex-col items-center flex-grow p-5">
+  <div class="flex flex-col items-center flex-grow px-2">
     <ol class="w-full">
       <li v-for="msg in messages[id()]" :key="msg">
         <div v-if="Object.keys(msg)[0] != 'mine'" class="">
@@ -28,7 +28,7 @@
     </ol>
   </div>
   <div class="p-2 sticky bottom-0 bg-gray-900 bg-opacity-75">
-    <input type="text" v-model="message" class="border px-2 py-1 mr-2 bg-gray-500 bg-opacity-50">
+    <textarea type="text" v-model="message" class="border rounded-lg px-2 py-1 mr-2 bg-gray-500 bg-opacity-50"></textarea>
     <button @click="userSendMessage" class="bg-transparent hover:bg-blue-500 font-semibold hover:text-white px-2 border border-white hover:border-transparent rounded">send</button>
   </div>
 </div>
@@ -81,7 +81,8 @@ export default ({
 
     userSendMessage: function(){
       let date = new Date();
-      let message = {'mine': this.message, 'date': date};
+      let optimizedMsg = this.message.split('\n').join('<br>')
+      let message = {'mine': optimizedMsg, 'date': date};
       this.sendMessages(message)
     },
   },
