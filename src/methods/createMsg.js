@@ -11,7 +11,6 @@ function getRandomInt(max){
 
 function createMsg(){
   let date = new Date();
-  console.log(date.getMonth())
   let atIndex = getRandomInt(4);
   let msg = sampleMsgs[atIndex];
   let msgObj = {'other': msg, 'date': date};
