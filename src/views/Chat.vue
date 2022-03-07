@@ -15,7 +15,7 @@
       </div>
     </div>
   </div>
-  <div class="flex flex-col items-center flex-grow px-2">
+  <div class="flex flex-col items-center flex-grow px-2 md:px-10 md:py-10">
     <ol class="w-full">
       <li v-for="msg in messages[id()]" :key="msg">
         <div v-if="Object.keys(msg)[0] != 'mine'" class="">
