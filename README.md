@@ -16,7 +16,7 @@ Vue.jsを使ったプロジェクトです。
 
 
 
-## [GitHubPages]("https://pkoky.github.io/OnlineDatingApp_JavaScript/")
+## [GitHubPages](https://pkoky.github.io/OnlineDatingApp_JavaScript/)
 
 
 
